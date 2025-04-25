@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 
     {% if title %}
         <title>{{ title }}</title>
@@ -33,8 +35,9 @@
 <body>
 
     <nav>
-        <span>Logo</span>
-
+        <link rel="preload" href="/_next/static/media/4f05ba3a6752a328-s.p.woff2" as="font" crossorigin type="font/woff2"/>
+        <link rel="preload" as="image" href="/images/heading-logo.png" fetchPriority="high" type="image/svg+xml"/>
+            
         <ul>
           <li><a href="/nfl">NFI</a></li>
           <li><a href="/nba">NBA</a></li>
@@ -43,10 +46,10 @@
         </ul>
 
         <ul>
-          <li><a href="YT">YT</a></li>
-          <li><a href="/">Tik Tok</a></li>
-          <li><a href="/">Insta</a></li>
-          <li><a href="https://x.com/BreaknBallsBets" target="_blank">Twitter</a></li>
+            <li><link rel="preload" as="image" href="/images/insta.png" fetchPriority="high" type="image/png"/></li>
+            <li><a href="/">Tik Tok</a></li>
+            <li><a href="/">Insta</a></li>
+            <li><link rel="preload" as="image" href="/images/twitter.png" type="image/png"/></li>
 
           <li><a href="https://discord.com/invite/KrBS7Q2hcM" target="_blank">Join</a></li>
 
