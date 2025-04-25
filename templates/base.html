@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>My website!!!</title>
+    {% endif %}
+
+
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-evenly;
+            border-bottom: 1px solid aqua;
+        }
+
+        nav li {
+            list-style-type: none;
+            display: inline;
+        }
+
+        nav ul{
+            display: inline;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <span>Logo</span>
+
+        <ul>
+          <li><a href="/nfl">NFI</a></li>
+          <li><a href="/nba">NBA</a></li>
+          <li><a href="/mlb">MLB</a></li>
+          <li><a href="/nhl">NHL</a></li>
+        </ul>
+
+        <ul>
+          <li><a href="YT">YT</a></li>
+          <li><a href="/">Tik Tok</a></li>
+          <li><a href="/">Insta</a></li>
+          <li><a href="https://x.com/BreaknBallsBets" target="_blank">Twitter</a></li>
+
+          <li><a href="https://discord.com/invite/KrBS7Q2hcM" target="_blank">Join</a></li>
+
+        </ul>
+      </nav>
+    {% block content %}<h1> Overrideable Content </h1>{% endblock %}
+</body>
+</html>
