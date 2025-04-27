@@ -1,12 +1,419 @@
 {% extends "base.html" %}
-
-{% block title %}MLB{% endblock %}
-
 {% block content %}
-    <ul>
-        <li><a href="/nrfi-yrfi">NRFI/YRFI</a></li>
-        <li><a href="/f5">F5</a></li>
-        <li><a href="/hits">Hits</a></li>
-        <li><a href="/strikeouts">Strikeouts</a></li>
-    </ul>
+
+{# Macro for time conversion used in Hits tab #}
+{% macro time_to_minutes(t) %}
+  {% set t = t[:-5] %} {# remove " [ET]" #}
+  {% set parts = t.split(' ') %}
+  {% set hm = parts[0].split(':') %}
+  {% set hour = hm[0]|int %}
+  {% set minute = hm[1]|int %}
+  {% set meridian = parts[1] %}
+  {% if meridian == 'PM' and hour != 12 %}
+    {% set hour = hour + 12 %}
+  {% elif meridian == 'AM' and hour == 12 %}
+    {% set hour = 0 %}
+  {% endif %}
+  {{ hour * 60 + minute }}
+{% endmacro %}
+
+<style>
+  /* Horizontal nav styles */
+  .horizontal-nav {
+    display: flex;
+    gap: 1em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .horizontal-tab-link {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  .horizontal-tab-link:hover {
+    background-color: #ddd;
+  }
+  .horizontal-tab-link.active {
+    background-color: #ffe082;
+    color: #003366;
+    font-weight: bold;
+  }
+
+  /* Vertical nav containers */
+  .section-container {
+    display: none; /* hidden by default, shown by JS */
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  /* Show flex container when active */
+  .section-container.active {
+    display: flex;
+  }
+
+  /* Vertical tab container styles */
+  .models-tab-container, .research-tab-container {
+    display: flex;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    flex-grow: 1;
+  }
+  .tab-links {
+    flex: 0 0 180px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+  }
+  .tab-links button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  .tab-links button:hover {
+    background-color: #ddd;
+  }
+  .tab-links button.active {
+    background-color: #ffe082;
+    color: #003366;
+    font-weight: bold;
+  }
+  .tab-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .tab-panel {
+    display: none;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+  #hitsTable_wrapper {
+    margin-top: 1em;
+  }
+</style>
+
+<div class="horizontal-nav" role="tablist" aria-orientation="horizontal">
+  <button class="horizontal-tab-link active" role="tab" aria-selected="false" aria-controls="research-section" id="research-tab-btn" onclick="switchSection(event, 'research-section')">Research</button>
+  <button class="horizontal-tab-link" role="tab" aria-selected="true" aria-controls="models-section" id="models-tab-btn" onclick="switchSection(event, 'models-section')">Models</button>
+</div>
+
+<div id="research-section" class="section-container active" style="flex-grow:1;">
+
+    <div class="research-tab-container" role="tablist" aria-orientation="vertical">
+      <div class="tab-links">
+        <button class="research-tab-link active" role="tab" aria-selected="true" aria-controls="tab-true-ba" id="tab-true-ba-btn" onclick="openTab(event, 'tab-true-ba')">Player True BA</button>
+        <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab-trends" id="tab-trends-btn" onclick="openTab(event, 'tab-trends')">MLB Trends</button>
+        <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab-bvp" id="tab-bvp-btn" onclick="openTab(event, 'tab-bvp')">Batter vs Pitcher</button>
+        <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab--nrfi-yrfi" id="tab--nrfi-yrfi-btn" onclick="openTab(event, 'tab--nrfi-yrfi')">NRFI - YRFI</button>
+      </div>
+  
+      <table id="tab-true-ba" class="display active" style="width:100%">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+      </table>
+  
+      <table id="tab-trends" class="display" style="width:100%">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+      </table>
+  
+      <table id="tab-bvp" class="display" style="width:100%">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+        </table>
+        <table id="tab--nrfi-yrfi" class="display" style="width:100%">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+        </table>
+    </div>
+  </div>
+  
+
+<div id="models-section" class="section-container" style="flex-grow:1;">
+
+  <div class="models-tab-container" role="tablist" aria-orientation="vertical">
+    <div class="tab-links">
+      <button class="tab-link active" role="tab" aria-selected="true" aria-controls="tab-nrfi" id="tab-nrfi-btn" onclick="openTab(event, 'tab-nrfi')">NRFI/YRFI</button>
+      <button class="tab-link" role="tab" aria-selected="false" aria-controls="tab-hits" id="tab-hits-btn" onclick="openTab(event, 'tab-hits')">Hits</button>
+      <button class="tab-link" role="tab" aria-selected="false" aria-controls="tab-ks" id="tab-ks-btn" onclick="openTab(event, 'tab-ks')">Strikeouts</button>
+      <button class="tab-link" role="tab" aria-selected="false" aria-controls="tab-f5" id="tab-f5-btn" onclick="openTab(event, 'tab-f5')">F5 ML</button>
+    </div>
+
+    <div class="tab-content">
+      <div id="tab-nrfi" class="tab-panel active" role="tabpanel" aria-labelledby="tab-nrfi-btn">
+        <h1>NRFI/YRFI Model</h1>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+          <thead>
+            <tr>
+              {% for col in nrfi_header %}
+                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in nrfi_data %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tab-hits" class="tab-panel" role="tabpanel" aria-labelledby="tab-hits-btn">
+        <h2>Hits Table</h2>
+        <div style="margin-bottom: 1em; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
+          <input type="text" id="nameSearch" placeholder="Search by name" style="padding: 5px;">
+          <select id="teamSelect" style="padding: 5px;">
+            <option value="">All Teams</option>
+          </select>
+          <label for="probabilitySlider" style="margin-right: 0.5em; white-space: nowrap;">Min Probability:</label>
+          <input type="range" id="probabilitySlider" min="0" max="100" value="0" step="1" style="vertical-align: middle;">
+          <span id="probabilityValue" style="min-width: 30px; display: inline-block;">0%</span>
+          <label> Show entries:
+            <select id="entriesSelect" style="padding: 5px;">
+              <option value="10">10</option>
+              <option value="20" selected>20</option>
+              <option value="50">50</option>
+              <option value="-1">All</option>
+            </select>
+          </label>
+        </div>
+        <table id="hitsTable" class="display" style="width:100%">
+          <thead>
+            <tr>
+              {% for col in hits_header %}
+                <th>{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in hits_data %}
+              <tr>
+                {% for col in row %}
+                  {% if loop.index0 == 2 %}
+                    <td data-sort="{{ time_to_minutes(col) }}">{{ col }}</td>
+                  {% else %}
+                    <td>{{ col }}</td>
+                  {% endif %}
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tab-ks" class="tab-panel" role="tabpanel" aria-labelledby="tab-ks-btn">
+        <h1>Strikeout Model</h1>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+          <thead>
+            <tr>
+              {% for col in ks_header %}
+                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in ks_data %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tab-f5" class="tab-panel" role="tabpanel" aria-labelledby="tab-f5-btn">
+        <h1>F5 ML Model</h1>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+          <thead>
+            <tr>
+              {% for col in f5_header %}
+                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in f5_data %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+  function switchSection(evt, sectionId) {
+
+    document.querySelectorAll('.horizontal-tab-link').forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    });
+
+    evt.currentTarget.classList.add('active');
+    evt.currentTarget.setAttribute('aria-selected', 'true');
+
+    document.querySelectorAll('.section-container').forEach(section => {
+      section.classList.remove('active');
+    });
+
+    const section = document.getElementById(sectionId);
+    section.classList.add('active');
+
+    const firstTabBtn = section.querySelector('.tab-link, .research-tab-link');
+    if (firstTabBtn) {
+      firstTabBtn.click();
+    }
+  }
+
+  function openTab(evt, tabId) {
+
+    const tabContainer = evt.currentTarget.closest('.models-tab-container, .research-tab-container');
+    if (!tabContainer) return;
+
+    tabContainer.querySelectorAll('.tab-panel, table.display').forEach(panel => {
+      panel.classList.remove('active');
+    });
+
+    tabContainer.querySelectorAll('.tab-link, .research-tab-link').forEach(link => {
+      link.classList.remove('active');
+      link.setAttribute('aria-selected', 'false');
+    });
+
+    evt.currentTarget.classList.add('active');
+    evt.currentTarget.setAttribute('aria-selected', 'true');
+
+    const activePanel = tabContainer.querySelector(`#${tabId}`);
+    if (activePanel) {
+      activePanel.classList.add('active');
+    }
+  }
+
+  $(document).ready(function() {
+    var table = $('#hitsTable').DataTable({
+      pageLength: 20,
+      order: [[3, 'desc']],
+      lengthChange: false,
+    });
+
+    var $teamSelect = $('#teamSelect');
+    var $probSlider = $('#probabilitySlider');
+    var $probValue = $('#probabilityValue');
+
+    function populateTeamDropdown() {
+      var teams = new Set();
+      table.column(1).data().each(function(team) {
+        teams.add(team);
+      });
+      $teamSelect.find('option:not(:first)').remove();
+      Array.from(teams).sort().forEach(function(team) {
+        $teamSelect.append('<option value="' + team + '">' + team + '</option>');
+      });
+    }
+
+    function updateProbabilitySliderText() {
+      var currentVal = parseFloat($probSlider.val());
+      $probSlider.val(currentVal);
+      $probValue.text(currentVal.toFixed(0) + '%');
+    }
+
+    function updateTeamDropdown() {
+      var teams = new Set();
+      table.rows({ filter: 'applied' }).data().each(function(row) {
+        teams.add(row[1]);
+      });
+      if (teams.size == 0) {
+        return;
+      }
+      var currentVal = $teamSelect.val();
+      $teamSelect.find('option:not(:first)').remove();
+      Array.from(teams).sort().forEach(function(team) {
+        $teamSelect.append('<option value="' + team + '">' + team + '</option>');
+      });
+      if (teams.has(currentVal)) {
+        $teamSelect.val(currentVal);
+      } else {
+        $teamSelect.val('');
+      }
+    }
+
+    $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+      var nameFilter = $('#nameSearch').val().toLowerCase();
+      var teamFilter = $teamSelect.val();
+      var minProb = parseFloat($probSlider.val()) || 0;
+      var name = data[0].toLowerCase();
+      var team = data[1];
+      var probability = parseFloat(data[3]) || 0;
+
+      if (nameFilter && !name.includes(nameFilter)) {
+        return false;
+      }
+      if (teamFilter && teamFilter !== "" && team !== teamFilter) {
+        return false;
+      }
+      if (probability < minProb) {
+        return false;
+      }
+      return true;
+    });
+
+    populateTeamDropdown();
+    updateProbabilitySliderText();
+
+    $('#entriesSelect').on('change', function() {
+      var val = $(this).val();
+      if (val === '-1') {
+        table.page.len(-1).draw();
+      } else {
+        table.page.len(parseInt(val)).draw();
+      }
+    });
+
+    $('#nameSearch, #teamSelect, #probabilitySlider').on('input change', function() {
+      table.draw();
+    });
+
+    table.on('draw', function() {
+      updateTeamDropdown();
+      updateProbabilitySliderText();
+    });
+  });
+</script>
+
 {% endblock %}

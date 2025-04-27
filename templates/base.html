@@ -1,60 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <title>{% block title %}Breaking Balls Sports{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 
-    {% if title %}
-        <title>{{ title }}</title>
-    {% else %}
-        <title>My website!!!</title>
-    {% endif %}
+  <style>
+    nav {
+        width: 100%;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
 
+    .nav-top-banner {
+        background-color: #ffe082;
+        color: #003366;            
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 8px 0;
+        width: 100%;
+    }
 
-    <style>
-        nav {
-            display: flex;
-            justify-content: space-evenly;
-            border-bottom: 1px solid aqua;
-        }
+    .nav-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        padding: 12px 40px 12px 24px;
+        min-height: 64px;
+        gap: 24px;
+    }
 
-        nav li {
-            list-style-type: none;
-            display: inline;
-        }
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
 
-        nav ul{
-            display: inline;
-            margin: 0;
-        }
-    </style>
+    .nav-logo img {
+        height: 48px;
+        vertical-align: middle;
+        margin-top: 67px;
+        margin-left: 40px;
+    }
+    .scaled-logo {
+        transform: scale(3);
+        position: relative;
+        top: -30px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .nav-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #0d133d;
+        font-style: italic;
+        letter-spacing: 0.01em;
+    }
+
+    .nav-mid {
+        display: flex;
+        gap: 32px;
+        margin-left: 48px;
+    }
+
+    .nav-mid a {
+        text-decoration: none;
+        color: #0d133d;
+        font-weight: 700;
+        font-size: 1.08rem;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+    }
+
+    .nav-mid a:hover {
+        color: #1976d2;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icons a, .social-icons img {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #0d133d;
+        border-radius: 6px;
+        background: transparent;
+        color: #0d133d;
+        font-size: 1.3rem;
+        transition: background 0.2s, border-color 0.2s;
+        text-decoration: none;
+    }
+
+    .social-icons a:hover, .social-icons img:hover {
+        background: #f0f4fa;
+        border-color: #1976d2;
+    }
+
+    .join-btn {
+        background: #6fdcff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 24px;
+        font-size: 1.08rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: inherit;
+    }
+
+    .join-btn:hover {
+        background: #4ec3e0;
+    }
+
+    @media (max-width: 900px) {
+    .nav-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 10px;
+        gap: 16px;
+    }
+    .nav-mid {
+        margin-left: 0;
+        gap: 18px;
+    }
+    .nav-right {
+        margin-top: 8px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  
+  {% block head %}{% endblock %}
 </head>
 <body>
-
     <nav>
-        <link rel="preload" href="/_next/static/media/4f05ba3a6752a328-s.p.woff2" as="font" crossorigin type="font/woff2"/>
-        <link rel="preload" as="image" href="/images/heading-logo.png" fetchPriority="high" type="image/svg+xml"/>
-            
-        <ul>
-          <li><a href="/nfl">NFI</a></li>
-          <li><a href="/nba">NBA</a></li>
-          <li><a href="/mlb">MLB</a></li>
-          <li><a href="/nhl">NHL</a></li>
-        </ul>
-
-        <ul>
-            <li><link rel="preload" as="image" href="/images/insta.png" fetchPriority="high" type="image/png"/></li>
-            <li><a href="/">Tik Tok</a></li>
-            <li><a href="/">Insta</a></li>
-            <li><link rel="preload" as="image" href="/images/twitter.png" type="image/png"/></li>
-
-          <li><a href="https://discord.com/invite/KrBS7Q2hcM" target="_blank">Join</a></li>
-
-        </ul>
+        <div class="nav-top-banner">Get in the lab</div>
+      
+        <div class="nav-bottom">
+          <div class="nav-left">
+            <span class="nav-logo">
+              <img src="/images/heading-logo.png" alt="BBS Logo" class="scaled-logo" />
+            </span>
+          </div>
+          <div class="nav-mid">
+            <a href="/nfl">NFL</a>
+            <a href="/nba">NBA</a>
+            <a href="/mlb">MLB</a>
+            <a href="/ncaaf">NCAAF</a>
+            <a href="/nhl">NHL</a>
+          </div>
+          <div class="nav-right">
+            <div class="social-icons">
+              <a href="/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+              <a href="/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://x.com/BreaknBallsBets" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <a href="https://discord.com/invite/KrBS7Q2hcM" target="_blank">
+              <button class="join-btn">Join Today</button>
+            </a>
+          </div>
+        </div>
       </nav>
-    {% block content %}<h1> Overrideable Content </h1>{% endblock %}
+            
+      
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
 </body>
 </html>
