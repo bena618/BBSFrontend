@@ -18,7 +18,6 @@
 {% endmacro %}
 
 <style>
-  /* Horizontal nav styles */
   .horizontal-nav {
     display: flex;
     gap: 1em;
@@ -44,19 +43,16 @@
     font-weight: bold;
   }
 
-  /* Vertical nav containers */
   .section-container {
-    display: none; /* hidden by default, shown by JS */
+    display: none; 
     flex-direction: row;
     gap: 1em;
   }
 
-  /* Show flex container when active */
   .section-container.active {
     display: flex;
   }
 
-  /* Vertical tab container styles */
   .models-tab-container, .research-tab-container {
     display: flex;
     height: 600px;
