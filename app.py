@@ -86,7 +86,7 @@ def mlb():
         nrfi_data = nrfi_data[-2:]
         nrfi_data.append(('Join','Vip','For','Full','Access','To','The','Chart'))
         hits_data = hits_data[:5]
-        hits_data.append(('Join Vip For Full Chart Access','BBS','22:22 PM ET',-1,+999))
+        hits_data.append(('Join Vip For Full Chart Access','BBS','22:22 PM ET',0.0,+999))
 
     return render_template('baseball.html',
                            nrfi_header=nrfi_header,
