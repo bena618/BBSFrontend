@@ -102,10 +102,10 @@ def mlb():
         hits_data.append(('Join Vip For Full Chart Access','BBS','22:22 PM ET',0.0,+999))
 
         ks_data = ks_data[:2]
-        ks_data.append(('Join', 'Vip', 'For', 'Full', 'Access','To', 'F5', 'ML','Chart'))
+        ks_data.append(('Join', 'Vip', 'For', 'Full', 'Chart', 'Access'))
 
         f5_data = f5_data[:5]
-        f5_data.append(('Join', 'Vip', 'For', 'Full', 'Chat','Access'))
+        f5_data.append(('Join', 'Vip', 'For', 'Full', 'Access','To', 'F5', 'ML','Chart'))
 
 
     return render_template('baseball.html',
