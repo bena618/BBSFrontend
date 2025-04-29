@@ -82,7 +82,7 @@ def mlb():
     hits_header = hits_rows[0]
     hits_data = hits_rows[1:]
 
-    with open('model_outputs/ks.csv', newline='') as f:
+    with open('model_outputs/strikeout_preds.csv', newline='') as f:
         ks_reader = csv.reader(f)
         ks_rows = list(ks_reader)
     ks_header = ks_rows[0]
