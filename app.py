@@ -82,17 +82,41 @@ def mlb():
     hits_header = hits_rows[0]
     hits_data = hits_rows[1:]
 
+    with open('model_outputs/ks.csv', newline='') as f:
+        ks_reader = csv.reader(f)
+        ks_rows = list(ks_reader)
+    ks_header = ks_rows[0]
+    ks_data = ks_rows[1:]
+
+    with open('model_outputs/f5_picks.csv', newline='') as f:
+        f5_reader = csv.reader(f)
+        f5_rows = list(f5_reader)
+    f5_header = f5_rows[0]
+    f5_data = f5_rows[1:]
+
     if not vip:
         nrfi_data = nrfi_data[-2:]
         nrfi_data.append(('Join','Vip','For','Full','Access','To','The','Chart'))
+
         hits_data = hits_data[:5]
         hits_data.append(('Join Vip For Full Chart Access','BBS','22:22 PM ET',0.0,+999))
+
+        ks_data = ks_data[:2]
+        ks_data.append(('Join', 'Vip', 'For', 'Full', 'Access','To', 'F5', 'ML','Chart'))
+
+        f5_data = f5_data[:5]
+        f5_data.append(('Join', 'Vip', 'For', 'Full', 'Chat','Access'))
+
 
     return render_template('baseball.html',
                            nrfi_header=nrfi_header,
                            nrfi_data=nrfi_data,
                            hits_header=hits_header,
                            hits_data=hits_data,
+                           ks_header=ks_header,
+                           ks_data=ks_data,
+                           f5_header=f5_header,
+                           f5_data=f5_data,
                            vip=vip)
 
 @app.route('/nba')
