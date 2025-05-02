@@ -131,12 +131,46 @@
         </thead>
       </table>
   
-      <table id="tab-bvp" class="display" style="width:100%">
+      <div id="tab-bvp" class="tab-bvp" role="tabpanel" aria-labelledby="tab-bvp-btn">
+        <h1>BATTER VS PITCHER</h1>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
           <thead>
             <tr>
+              {% for col in bvp_header %}
+                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+              {% endfor %}
             </tr>
           </thead>
+          <tbody>
+            {% for row in bvp_data %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
         </table>
+      </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <table id="tab--nrfi-yrfi" class="display" style="width:100%">
           <thead>
             <tr>

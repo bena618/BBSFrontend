@@ -70,6 +70,15 @@ def inject_username():
 def mlb():
     vip = user_is_vip()
 
+    with open('research/bvp_chart.csv', newline='') as f:
+        bvp_reader = csv.reader(f)
+        bvp_rows = list(nrfi_reader)
+    bvp_header = bvp_rows[0]
+    bvp_data = bvp_rows[1:]
+
+
+
+
     with open('model_outputs/nrfi_yrfi_picks.csv', newline='') as f:
         nrfi_reader = csv.reader(f)
         nrfi_rows = list(nrfi_reader)
@@ -108,7 +117,9 @@ def mlb():
         f5_data.append(('Join', 'Vip', 'For', 'Full', 'Access','To', 'F5', 'ML','Chart'))
 
 
-    return render_template('baseball.html',
+    return render_template('baseball.html', 
+                           bvp_header=bvp_header,
+                           bvp_data=bvp_data,
                            nrfi_header=nrfi_header,
                            nrfi_data=nrfi_data,
                            hits_header=hits_header,
