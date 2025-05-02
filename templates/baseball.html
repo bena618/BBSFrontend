@@ -117,19 +117,23 @@
         <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab--nrfi-yrfi" id="tab--nrfi-yrfi-btn" onclick="openTab(event, 'tab--nrfi-yrfi')">NRFI - YRFI</button>
       </div>
   
-      <table id="tab-true-ba" class="display active" style="width:100%">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-      </table>
-  
-      <table id="tab-trends" class="display" style="width:100%">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-      </table>
+      <div id="tab-ba" class="tab-ba" role="tabpanel" aria-labelledby="tab-ba-btn">
+        <table id="tab-true-ba" class="display active" style="width:100%">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div id="tab-trends" class="tab-trends" role="tabpanel" aria-labelledby="tab-trends-btn">  
+        <table id="tab-trends" class="display" style="width:100%">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+        </table>
+      </div>
   
       <div id="tab-bvp" class="tab-bvp" role="tabpanel" aria-labelledby="tab-bvp-btn">
         <h1>BATTER VS PITCHER</h1>
@@ -153,24 +157,7 @@
         </table>
       </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div id="tab--nrfi-yrfi" class="tab--nrfi-yrfi" role="tabpanel" aria-labelledby="tab--nrfi-yrfi-btn">
         <table id="tab--nrfi-yrfi" class="display" style="width:100%">
           <thead>
             <tr>
