@@ -72,12 +72,9 @@ def mlb():
 
     with open('research/bvp_chart.csv', newline='') as f:
         bvp_reader = csv.reader(f)
-        bvp_rows = list(nrfi_reader)
+        bvp_rows = list(bvp_reader)
     bvp_header = bvp_rows[0]
     bvp_data = bvp_rows[1:]
-
-
-
 
     with open('model_outputs/nrfi_yrfi_picks.csv', newline='') as f:
         nrfi_reader = csv.reader(f)
