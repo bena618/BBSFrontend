@@ -117,35 +117,48 @@
         <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab--nrfi-yrfi" id="tab--nrfi-yrfi-btn" onclick="openTab(event, 'tab--nrfi-yrfi')">NRFI - YRFI</button>
       </div>
   
-      <table id="tab-true-ba" class="display active" style="width:100%">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-      </table>
-  
-      <table id="tab-trends" class="display" style="width:100%">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-      </table>
-  
-      <table id="tab-bvp" class="display" style="width:100%">
+      <div id="tab-trends" class="tab-panel" role="tabpanel" aria-labelledby="tab-trends-btn" style="display:none;">
+        <table class="display" style="width:100%">
           <thead>
             <tr>
             </tr>
           </thead>
         </table>
-        <table id="tab--nrfi-yrfi" class="display" style="width:100%">
+      </div>
+
+      <div id="tab-bvp" class="tab-panel" role="tabpanel" aria-labelledby="tab-bvp-btn" style="display:none;">
+        <h1>BATTER VS PITCHER</h1>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+          <thead>
+            <tr>
+              {% for col in bvp_header %}
+                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in bvp_data %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tab--nrfi-yrfi" class="tab-panel" role="tabpanel" aria-labelledby="tab--nrfi-yrfi-btn" style="display:none;">
+        <table class="display" style="width:100%">
           <thead>
             <tr>
             </tr>
           </thead>
         </table>
+      </div>
     </div>
   </div>
-  
+</div>  
 
 <div id="models-section" class="section-container" style="flex-grow:1;">
 
