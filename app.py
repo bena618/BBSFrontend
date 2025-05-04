@@ -1,7 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, session
 from flask_discord import DiscordOAuth2Session
+from dotenv import load_dotenv
 import csv
 import os
+
+load_dotenv()
 
 app = Flask(__name__, static_folder='static', static_url_path='/')
 
@@ -76,6 +79,12 @@ def mlb():
     bvp_header = bvp_rows[0]
     bvp_data = bvp_rows[1:]
 
+    with open('research/nrfi_yrfi_chart.csv', newline='') as f:
+        nrfi_yrfi_research_reader = csv.reader(f)
+        nrfi_yrfi_research_rows = list(nrfi_yrfi_research_reader)
+    nrfi_yrfi_research_header = nrfi_yrfi_research_rows[0]
+    nrfi_yrfi_research_data = nrfi_yrfi_research_rows[1:]
+
     with open('model_outputs/nrfi_yrfi_picks.csv', newline='') as f:
         nrfi_reader = csv.reader(f)
         nrfi_rows = list(nrfi_reader)
@@ -117,6 +126,8 @@ def mlb():
     return render_template('baseball.html', 
                            bvp_header=bvp_header,
                            bvp_data=bvp_data,
+                           nrfi_yrfi_research_header=nrfi_yrfi_research_header,
+                           nrfi_yrfi_research_data=nrfi_yrfi_research_data,
                            nrfi_header=nrfi_header,
                            nrfi_data=nrfi_data,
                            hits_header=hits_header,

@@ -17,110 +17,24 @@
   {{ hour * 60 + minute }}
 {% endmacro %}
 
-<style>
-  .horizontal-nav {
-    display: flex;
-    gap: 1em;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  .horizontal-tab-link {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  }
-  .horizontal-tab-link:hover {
-    background-color: #ddd;
-  }
-  .horizontal-tab-link.active {
-    background-color: #ffe082;
-    color: #003366;
-    font-weight: bold;
-  }
-
-  .section-container {
-    display: none; 
-    flex-direction: row;
-    gap: 1em;
-  }
-
-  .section-container.active {
-    display: flex;
-  }
-
-  .models-tab-container, .research-tab-container {
-    display: flex;
-    height: 600px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    flex-grow: 1;
-  }
-  .tab-links {
-    flex: 0 0 180px;
-    background-color: #f1f1f1;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid #ccc;
-  }
-  .tab-links button {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    width: 100%;
-  }
-  .tab-links button:hover {
-    background-color: #ddd;
-  }
-  .tab-links button.active {
-    background-color: #ffe082;
-    color: #003366;
-    font-weight: bold;
-  }
-  .tab-content {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  .tab-panel {
-    display: none;
-  }
-  .tab-panel.active {
-    display: block;
-  }
-  #hitsTable_wrapper {
-    margin-top: 1em;
-  }
-</style>
-
-<div class="horizontal-nav" role="tablist" aria-orientation="horizontal">
+<nav class="horizontal-nav" role="tablist" aria-orientation="horizontal">
   <button class="horizontal-tab-link active" role="tab" aria-selected="false" aria-controls="research-section" id="research-tab-btn" onclick="switchSection(event, 'research-section')">Research</button>
   <button class="horizontal-tab-link" role="tab" aria-selected="true" aria-controls="models-section" id="models-tab-btn" onclick="switchSection(event, 'models-section')">Models</button>
-</div>
+</nav>
 
-<div id="research-section" class="section-container active" style="flex-grow:1;">
+<div id="research-section" class="section-container active">
 
     <div class="research-tab-container" role="tablist" aria-orientation="vertical">
-      <div class="tab-links">
+      <nav class="tab-links">
         <button class="research-tab-link active" role="tab" aria-selected="true" aria-controls="tab-true-ba" id="tab-true-ba-btn" onclick="openTab(event, 'tab-true-ba')">Player True BA</button>
         <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab-trends" id="tab-trends-btn" onclick="openTab(event, 'tab-trends')">MLB Trends</button>
         <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab-bvp" id="tab-bvp-btn" onclick="openTab(event, 'tab-bvp')">Batter vs Pitcher</button>
         <button class="research-tab-link" role="tab" aria-selected="false" aria-controls="tab--nrfi-yrfi" id="tab--nrfi-yrfi-btn" onclick="openTab(event, 'tab--nrfi-yrfi')">NRFI - YRFI</button>
-      </div>
+      </nav>
 
       
       <div id="tab-true-ba" class="tab-panel" role="tabpanel" aria-labelledby="tab-true-ba-btn">
-        <h1>PLAYER TRUE BA</h1>
-        <table class="display" style="width:100%">
+        <table class="display">
           <thead>
             <tr>
             </tr>
@@ -130,8 +44,7 @@
 
 
       <div id="tab-trends" class="tab-panel" role="tabpanel" aria-labelledby="tab-trends-btn">
-        <h1>MLB TRENDS</h1>
-        <table class="display" style="width:100%">
+        <table class="display">
           <thead>
             <tr>
             </tr>
@@ -140,12 +53,11 @@
       </div>
 
       <div id="tab-bvp" class="tab-panel" role="tabpanel" aria-labelledby="tab-bvp-btn">
-        <h1>BATTER VS PITCHER</h1>
-        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+        <table>
           <thead>
             <tr>
               {% for col in bvp_header %}
-                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+                <th>{{ col }}</th>
               {% endfor %}
             </tr>
           </thead>
@@ -153,7 +65,7 @@
             {% for row in bvp_data %}
               <tr>
                 {% for cell in row %}
-                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                  <td>{{ cell }}</td>
                 {% endfor %}
               </tr>
             {% endfor %}
@@ -162,18 +74,30 @@
       </div>
 
       <div id="tab--nrfi-yrfi" class="tab-panel" role="tabpanel" aria-labelledby="tab--nrfi-yrfi-btn">
-        <table class="display" style="width:100%">
+        <table>
           <thead>
             <tr>
+              {% for col in nrfi_yrfi_research_header %}
+                <th>{{ col }}</th>
+              {% endfor %}
             </tr>
           </thead>
+          <tbody>
+            {% for row in nrfi_yrfi_research_data %}
+              <tr>
+                {% for cell in row %}
+                  <td>{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>  
 
-<div id="models-section" class="section-container" style="flex-grow:1;">
+<div id="models-section" class="section-container">
 
   <div class="models-tab-container" role="tablist" aria-orientation="vertical">
     <div class="tab-links">
@@ -185,12 +109,11 @@
 
     <div class="tab-content">
       <div id="tab-nrfi" class="tab-panel active" role="tabpanel" aria-labelledby="tab-nrfi-btn">
-        <h1>NRFI/YRFI Model</h1>
-        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+        <table>
           <thead>
             <tr>
               {% for col in nrfi_header %}
-                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+                <th>{{ col }}</th>
               {% endfor %}
             </tr>
           </thead>
@@ -198,7 +121,7 @@
             {% for row in nrfi_data %}
               <tr>
                 {% for cell in row %}
-                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                  <td>{{ cell }}</td>
                 {% endfor %}
               </tr>
             {% endfor %}
@@ -208,16 +131,16 @@
 
       <div id="tab-hits" class="tab-panel" role="tabpanel" aria-labelledby="tab-hits-btn">
         <h2>Hits Table</h2>
-        <div style="margin-bottom: 1em; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
-          <input type="text" id="nameSearch" placeholder="Search by name" style="padding: 5px;">
-          <select id="teamSelect" style="padding: 5px;">
+        <div class="team-selecter">
+          <input type="text" id="nameSearch" placeholder="Search by name">
+          <select id="teamSelect">
             <option value="">All Teams</option>
           </select>
-          <label for="probabilitySlider" style="margin-right: 0.5em; white-space: nowrap;">Min Probability:</label>
-          <input type="range" id="probabilitySlider" min="0" max="100" value="0" step="1" style="vertical-align: middle;">
-          <span id="probabilityValue" style="min-width: 30px; display: inline-block;">0%</span>
+          <label for="probabilitySlider">Min Probability:</label>
+          <input type="range" id="probabilitySlider" min="0" max="100" value="0" step="1">
+          <span id="probabilityValue">0%</span>
           <label> Show entries:
-            <select id="entriesSelect" style="padding: 5px;">
+            <select id="entriesSelect">
               <option value="10">10</option>
               <option value="20" selected>20</option>
               <option value="50">50</option>
@@ -225,7 +148,7 @@
             </select>
           </label>
         </div>
-        <table id="hitsTable" class="display" style="width:100%">
+        <table id="hitsTable" class="display">
           <thead>
             <tr>
               {% for col in hits_header %}
@@ -250,12 +173,11 @@
       </div>
 
       <div id="tab-ks" class="tab-panel" role="tabpanel" aria-labelledby="tab-ks-btn">
-        <h1>Strikeout Model</h1>
-        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+        <table>
           <thead>
             <tr>
               {% for col in ks_header %}
-                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+                <th>{{ col }}</th>
               {% endfor %}
             </tr>
           </thead>
@@ -263,7 +185,7 @@
             {% for row in ks_data %}
               <tr>
                 {% for cell in row %}
-                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                  <td>{{ cell }}</td>
                 {% endfor %}
               </tr>
             {% endfor %}
@@ -272,12 +194,11 @@
       </div>
 
       <div id="tab-f5" class="tab-panel" role="tabpanel" aria-labelledby="tab-f5-btn">
-        <h1>F5 ML Model</h1>
-        <table style="width: 100%; border-collapse: collapse; border: 1px solid black;">
+        <table>
           <thead>
             <tr>
               {% for col in f5_header %}
-                <th style="border: 1px solid black; padding: 5px;">{{ col }}</th>
+                <th>{{ col }}</th>
               {% endfor %}
             </tr>
           </thead>
@@ -285,7 +206,7 @@
             {% for row in f5_data %}
               <tr>
                 {% for cell in row %}
-                  <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                  <td>{{ cell }}</td>
                 {% endfor %}
               </tr>
             {% endfor %}
