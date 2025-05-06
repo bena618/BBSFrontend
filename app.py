@@ -108,7 +108,7 @@ def mlb():
         f5_rows = list(f5_reader)
     f5_header = f5_rows[0]
     f5_data = f5_rows[1:]
-
+    '''
     if not vip:
         nrfi_data = nrfi_data[-2:]
         nrfi_data.append(('Join','Vip','For','Full','Access','To','The','Chart'))
@@ -121,6 +121,7 @@ def mlb():
 
         f5_data = f5_data[:5]
         f5_data.append(('Join', 'Vip', 'For', 'Full', 'Access','To', 'F5', 'ML','Chart'))
+    '''
 
 
     return render_template('baseball.html', 
