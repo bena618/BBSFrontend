@@ -1,19 +1,19 @@
 Batter,Pitcher,AB,H,2B,3B,HR,BB,SO,AVG,OBP,SLG
 Steven Kwan,Jake Irvin,3,1,0,0,0,0,1,.333,.333,.333
-Gabriel Arias,Jake Irvin,2,1,1,0,0,0,1,.500,.500,1.000
+Daniel Schneemann,Jake Irvin,2,1,1,0,0,0,0,.500,.500,1.000
 Jose Ramirez,Jake Irvin,3,0,0,0,0,0,1,.000,.000,.000
 Kyle Manzardo,Jake Irvin,0,0,0,0,0,0,0,.000,.000,.000
 Carlos Santana,Jake Irvin,5,1,0,0,1,1,1,.200,.333,.800
-Daniel Schneemann,Jake Irvin,2,1,1,0,0,0,0,.500,.500,1.000
 Bo Naylor,Jake Irvin,2,0,0,0,0,0,0,.000,.000,.000
-Jhonkensy Noel,Jake Irvin,0,0,0,0,0,0,0,.000,.000,.000
+Gabriel Arias,Jake Irvin,2,1,1,0,0,0,1,.500,.500,1.000
+Nolan Jones,Jake Irvin,4,0,0,0,0,1,1,.000,.200,.000
 Angel Martinez,Jake Irvin,0,0,0,0,0,0,0,.000,.000,.000
 CJ Abrams,Luis L. Ortiz,3,0,0,0,0,0,1,.000,.000,.000
+Alex Call,Luis L. Ortiz,0,0,0,0,0,0,0,.000,.000,.000
 James Wood,Luis L. Ortiz,3,1,0,0,0,0,0,.333,.333,.333
-Luis Garcia,Luis L. Ortiz,3,2,1,0,0,1,0,.667,.750,1.000
 Nathaniel Lowe,Luis L. Ortiz,6,1,0,0,0,0,2,.167,.167,.167
-Josh Bell,Luis L. Ortiz,3,1,0,0,1,0,0,.333,.333,1.333
 Keibert Ruiz,Luis L. Ortiz,2,0,0,0,0,0,1,.000,.000,.000
+Luis Garcia,Luis L. Ortiz,3,2,1,0,0,1,0,.667,.750,1.000
 Dylan Crews,Luis L. Ortiz,3,2,1,0,1,0,0,.667,.667,2.000
 Jose Tena,Luis L. Ortiz,3,2,0,0,0,0,0,.667,.667,.667
 Jacob Young,Luis L. Ortiz,2,0,0,0,0,0,0,.000,.000,.000
@@ -47,11 +47,11 @@ Evan Carter,Lucas Giolito,2,1,1,0,0,0,1,.500,.500,1.000
 Jarren Duran,Nathan Eovaldi,6,2,1,0,1,0,1,.333,.333,1.000
 Rafael Devers,Nathan Eovaldi,11,2,1,0,0,1,4,.182,.250,.273
 Alex Bregman,Nathan Eovaldi,18,4,2,0,1,2,4,.222,.300,.500
-Trevor Story,Nathan Eovaldi,5,1,0,0,1,1,2,.200,.333,.800
 Kristian Campbell,Nathan Eovaldi,2,0,0,0,0,0,1,.000,.000,.000
 Wilyer Abreu,Nathan Eovaldi,4,3,0,0,2,0,1,.750,.750,2.250
-Romy Gonzalez,Nathan Eovaldi,0,0,0,0,0,0,0,.000,.000,.000
-Connor Wong,Nathan Eovaldi,9,4,2,0,0,0,3,.444,.444,.667
+Trevor Story,Nathan Eovaldi,5,1,0,0,1,1,2,.200,.333,.800
+Abraham Toro,Nathan Eovaldi,5,0,0,0,0,0,2,.000,.000,.000
+Carlos Narvaez,Nathan Eovaldi,0,0,0,0,0,0,0,.000,.000,.000
 Ceddanne Rafaela,Nathan Eovaldi,4,0,0,0,0,0,1,.000,.000,.000
 Fernando Tatis,Clarke Schmidt,2,0,0,0,0,0,0,.000,.333,.000
 Luis Arraez,Clarke Schmidt,3,1,0,0,0,0,0,.333,.333,.333
@@ -212,8 +212,8 @@ Brendan Donovan,Paul Skenes,10,3,1,0,0,0,0,.300,.300,.400
 Nolan Arenado,Paul Skenes,11,4,1,0,1,1,0,.364,.417,.727
 Willson Contreras,Paul Skenes,6,0,0,0,0,0,4,.000,.000,.000
 Alec Burleson,Paul Skenes,12,5,0,0,0,1,2,.417,.462,.417
+Yohel Pozo,Paul Skenes,0,0,0,0,0,0,0,.000,.000,.000
 Jordan Walker,Paul Skenes,5,1,0,0,0,0,3,.200,.200,.200
-Pedro Pages,Paul Skenes,7,1,0,0,0,0,2,.143,.143,.143
 Victor Scott,Paul Skenes,3,1,0,1,0,0,0,.333,.333,1.000
 Kerry Carpenter,Chase Dollander,0,0,0,0,0,0,0,.000,.000,.000
 Gleyber Torres,Chase Dollander,0,0,0,0,0,0,0,.000,.000,.000
@@ -269,7 +269,7 @@ Gabriel Moreno,David Peterson,2,1,0,0,0,0,0,.500,.500,.500
 Lourdes Gurriel,David Peterson,7,2,0,0,1,0,0,.286,.286,.714
 Garrett Hampson,David Peterson,8,1,0,1,0,0,0,.125,.125,.375
 Geraldo Perdomo,David Peterson,6,2,1,0,0,2,1,.333,.500,.500
-J.P. Crawford,Jeffrey Springs,5,0,0,0,0,1,1,.000,.167,.000
+Dylan Moore,Jeffrey Springs,4,2,1,0,0,1,1,.500,.600,.750
 Julio Rodriguez,Jeffrey Springs,6,1,0,0,0,0,5,.167,.167,.167
 Cal Raleigh,Jeffrey Springs,4,0,0,0,0,1,2,.000,.200,.000
 Randy Arozarena,Jeffrey Springs,4,1,0,0,0,0,1,.250,.250,.250
@@ -277,7 +277,7 @@ Mitch Garver,Jeffrey Springs,4,1,0,0,0,0,0,.250,.250,.250
 Donovan Solano,Jeffrey Springs,2,0,0,0,0,0,2,.000,.000,.000
 Ben Williamson,Jeffrey Springs,0,0,0,0,0,0,0,.000,.000,.000
 Leo Rivas,Jeffrey Springs,1,0,0,0,0,0,1,.000,.000,.000
-Samad Taylor,Jeffrey Springs,0,0,0,0,0,0,0,.000,.000,.000
+J.P. Crawford,Jeffrey Springs,5,0,0,0,0,1,1,.000,.167,.000
 Lawrence Butler,Emerson Hancock,3,0,0,0,0,0,1,.000,.000,.000
 Jacob Wilson,Emerson Hancock,2,1,0,0,0,0,0,.500,.500,.500
 Tyler Soderstrom,Emerson Hancock,3,1,0,0,1,0,0,.333,.333,1.333
