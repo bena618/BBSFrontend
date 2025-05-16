@@ -1,13 +1,27 @@
 Matchup,NRFI-YRFI,L10,Pitcher,NRFI-YRFI,NRFI Streak,Opp FI AVG,Team FI AVG
-Braves,19-24,6-4,AJ Smith-Shawver,3-3,3,0.238,0.261
-Reds,23-21,7-3,Nick Martinez,5-3,2,0.273,0.207
-Orioles,17-23,5-5,Tomoyuki Sugano,5-3,3,0.225,0.273
-Twins,16-26,4-6,Chris Paddack,5-3,5,0.236,0.241
-Dodgers,20-23,4-6,Matt Sauer,0-0,0,N/A,N/A
-White Sox,20-23,7-3,Bryse Wilson,2-1,0,0.315,0.273
-Athletics,24-19,5-5,Osvaldo Bido,5-3,2,0.288,0.276
-Rangers,24-20,6-4,Jacob deGrom,5-3,0,0.215,0.207
-Blue Jays,20-22,6-4,Kevin Gausman,5-3,4,0.2,0.16
-Rays,20-22,6-4,Zack Littell,5-3,0,0.244,0.179
-Nationals,22-22,5-5,Trevor Williams,5-3,1,0.314,0.214
-Astros,26-16,8-2,Hunter Brown,6-2,1,0.18,0.29
+Braves,20-24,6-4,Chris Sale,5-4,4,0.281,0.357
+Mets,28-16,6-4,Tylor Megill,7-1,0,0.219,0.172
+Reds,23-22,6-4,Brady Singer,5-3,0,0.248,0.207
+Cubs,28-16,7-3,Cade Horton,0-0,0,N/A,N/A
+Royals,31-14,9-1,Cole Ragans,6-2,2,0.24,0.258
+Padres,22-20,4-6,Stephen Kolek,2-0,2,0.188,0
+Diamondbacks,20-24,5-5,Corbin Burnes,6-1,5,0.231,0.28
+Tigers,23-21,4-6,Jack Flaherty,7-1,0,0.236,0.185
+White Sox,20-24,6-4,Shane Smith,7-1,2,0.205,0.226
+Dodgers,20-24,4-6,Dustin May,5-2,1,0.227,0.29
+Athletics,24-20,5-5,JP Sears,8-0,8,0.222,0.143
+Orioles,19-23,5-5,Cade Povich,5-2,1,0.297,0.25
+Twins,18-26,5-5,Joe Ryan,5-3,1,0.196,0.2
+Brewers,23-21,6-4,Chad Patrick,6-2,0,0.248,0.286
+Angels,17-25,3-7,Jack Kochanowicz,5-3,4,0.284,0.323
+Rangers,25-20,6-4,Nathan Eovaldi,8-1,5,0.186,0.161
+Blue Jays,20-23,6-4,Bowden Francis,7-1,2,0.275,0.185
+Yankees,22-21,9-1,Carlos Rodon,7-2,3,0.171,0.156
+Pirates,26-18,7-3,Andrew Heaney,6-2,1,0.21,0.2
+Nationals,23-22,5-5,MacKenzie Gore,6-3,0,0.233,0.242
+Phillies,24-19,7-3,Ranger Suarez,2-0,2,0.25,0
+Giants,22-22,4-6,Logan Webb,6-3,2,0.243,0.289
+Cardinals,22-22,6-4,Andre Pallante,7-1,7,0.26,0.214
+Red Sox,21-24,5-5,Garrett Crochet,7-2,1,0.192,0.257
+Astros,27-16,8-2,Lance McCullers Jr.,1-1,0,0.333,0.556
+Guardians,26-17,8-2,Tanner Bibee,5-3,3,0.235,0.3
