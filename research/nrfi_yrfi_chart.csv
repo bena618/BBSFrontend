@@ -1,17 +1,30 @@
 Matchup,NRFI-YRFI,L10,Pitcher,NRFI-YRFI,NRFI Streak,Opp FI AVG,Team FI AVG
-Braves,21-27,5-5,AJ Smith-Shawver,4-3,4,0.218,0.231
-Padres,24-23,3-7,Stephen Kolek,2-1,0,0.243,0.273
-Athletics,28-22,6-4,Luis Severino,8-2,7,0.243,0.139
-Mariners,20-28,6-4,George Kirby,0-0,0,N/A,N/A
-Tigers,26-24,4-6,Jack Flaherty,8-1,1,0.237,0.194
-Rockies,22-27,2-8,German Marquez,4-5,0,0.333,0.366
+Braves,21-28,4-6,Chris Sale,6-4,5,0.274,0.333
+Mets,32-18,7-3,Griffin Canning,8-1,2,0.243,0.194
+Reds,27-24,7-3,Hunter Greene,7-1,3,0.175,0.111
+Cubs,28-22,4-6,Matthew Boyd,7-2,0,0.259,0.188
+Royals,36-15,9-1,Noah Cameron,2-0,2,0.073,0
+Padres,25-23,4-6,Nick Pivetta,8-1,1,0.193,0.235
+Diamondbacks,23-27,4-6,Zac Gallen,5-5,0,0.241,0.295
+Tigers,27-24,4-6,Jackson Jobe,4-4,2,0.238,0.353
+White Sox,22-28,5-5,Sean Burke,5-4,4,0.247,0.2
+Dodgers,22-28,3-7,Clayton Kershaw,0-1,0,0.312,0.5
+Rockies,23-27,3-7,Tanner Gordon,1-0,1,0.333,0
+Mariners,20-29,5-5,Emerson Hancock,3-4,2,0.319,0.438
 Orioles,23-25,6-4,Cade Povich,6-2,2,0.28,0.226
-Angels,19-29,3-7,Tyler Anderson,3-6,0,0.202,0.366
-Rangers,29-21,7-3,Nathan Eovaldi,9-1,6,0.179,0.171
-Blue Jays,23-25,7-3,Bowden Francis,8-1,3,0.286,0.167
-Yankees,26-22,8-2,Carlos Rodon,8-2,4,0.167,0.143
-Phillies,26-23,5-5,Ranger Suarez,3-0,3,0.239,0
-Nationals,24-25,4-6,Trevor Williams,6-3,2,0.309,0.194
+Twins,20-29,5-5,Pablo Lopez,6-2,1,0.2,0.258
+Brewers,27-24,6-4,Freddy Peralta,8-2,3,0.193,0.231
+Angels,19-30,3-7,Yusei Kikuchi,8-2,4,0.251,0.333
+Rangers,30-21,7-3,Tyler Mahle,8-2,0,0.185,0.2
+Marlins,24-24,6-4,Sandy Alcantara,5-4,2,0.267,0.306
+Blue Jays,24-25,7-3,Eric Lauer,1-0,1,0.175,0.25
+Yankees,27-22,8-2,Clarke Schmidt,4-2,1,0.216,0.217
+Pirates,29-22,5-5,Paul Skenes,10-0,10,0.19,0.176
+Nationals,24-26,3-7,MacKenzie Gore,7-3,1,0.257,0.282
+Phillies,27-23,5-5,Zack Wheeler,10-0,10,0.196,0.094
+Cardinals,26-24,6-4,Miles Mikolas,6-3,2,0.234,0.35
+Giants,26-24,5-5,Landen Roupp,7-2,4,0.272,0.273
+Red Sox,24-27,4-6,Brayan Bello,3-3,0,0.286,0.391
 Red Sox,24-27,4-6,Lucas Giolito,2-2,0,0.305,0.294
-Astros,31-18,8-2,Lance McCullers Jr.,2-1,1,0.286,0.417
-Guardians,30-18,8-2,Tanner Bibee,6-3,4,0.254,0.294
+Astros,31-19,7-3,Ryan Gusto,3-2,1,0.268,0.273
+Guardians,31-18,8-2,Slade Cecconi,1-0,1,0.25,0
