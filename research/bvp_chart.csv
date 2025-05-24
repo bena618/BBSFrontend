@@ -116,15 +116,15 @@ Gavin Sheets,Grant Holmes,0,0,0,0,0,0,0,.000,.000,.000
 Jake Cronenworth,Grant Holmes,1,0,0,0,0,0,1,.000,.000,.000
 Elias Diaz,Grant Holmes,2,1,1,0,0,0,1,.500,.500,1.000
 Brandon Lockridge,Grant Holmes,0,0,0,0,0,0,0,.000,.000,.000
-Ronald Acuna,Michael King,0,0,0,0,0,1,0,.000,1.000,.000
-Drake Baldwin,Michael King,1,0,0,0,0,1,1,.000,.500,.000
-Marcell Ozuna,Michael King,1,0,0,0,0,2,0,.000,.667,.000
-Matt Olson,Michael King,2,0,0,0,0,1,0,.000,.333,.000
-Austin Riley,Michael King,3,1,0,0,0,0,1,.333,.333,.333
-Alex Verdugo,Michael King,9,3,2,0,0,0,1,.333,.333,.556
-Ozzie Albies,Michael King,2,1,0,0,1,0,0,.500,.500,2.000
-Michael Harris,Michael King,3,1,0,0,0,0,1,.333,.333,.333
-Nick Allen,Michael King,1,0,0,0,0,0,0,.000,.000,.000
+Ronald Acuna,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Drake Baldwin,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Marcell Ozuna,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Matt Olson,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Austin Riley,Sean Reynolds,1,0,0,0,0,0,1,.000,.000,.000
+Alex Verdugo,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Ozzie Albies,Sean Reynolds,0,0,0,0,0,1,0,.000,1.000,.000
+Michael Harris,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
+Nick Allen,Sean Reynolds,0,0,0,0,0,0,0,.000,.000,.000
 Ian Happ,Andrew Abbott,5,0,0,0,0,2,0,.000,.250,.000
 Kyle Tucker,Andrew Abbott,3,2,0,0,0,0,0,.667,.667,.667
 Seiya Suzuki,Andrew Abbott,4,1,0,0,0,0,0,.250,.200,.250
@@ -211,8 +211,8 @@ Josh Lowe,Jose Berrios,13,4,1,0,0,0,3,.308,.308,.385
 Brandon Lowe,Jose Berrios,17,3,0,0,1,3,9,.176,.300,.353
 Junior Caminero,Jose Berrios,6,1,1,0,0,0,1,.167,.167,.333
 Jonathan Aranda,Jose Berrios,10,5,0,0,3,1,2,.500,.545,1.400
+Jose Caballero,Jose Berrios,9,3,0,0,0,0,1,.333,.333,.333
 Kameron Misner,Jose Berrios,3,1,0,0,0,0,2,.333,.333,.333
-Taylor Walls,Jose Berrios,11,0,0,0,0,1,4,.000,.083,.000
 Danny Jansen,Jose Berrios,1,0,0,0,0,0,0,.000,.500,.000
 Chandler Simpson,Jose Berrios,3,1,1,0,0,0,0,.333,.333,.667
 Steven Kwan,Casey Mize,0,0,0,0,0,0,0,.000,.000,.000
@@ -226,31 +226,31 @@ Bo Naylor,Casey Mize,0,0,0,0,0,0,0,.000,.000,.000
 Nolan Jones,Casey Mize,2,1,0,0,0,0,0,.500,.500,.500
 Kerry Carpenter,Luis L. Ortiz,0,0,0,0,0,0,0,.000,.000,.000
 Gleyber Torres,Luis L. Ortiz,5,2,0,0,0,1,1,.400,.500,.400
-Zach McKinstry,Luis L. Ortiz,4,1,0,0,0,2,1,.250,.500,.250
+Colt Keith,Luis L. Ortiz,2,0,0,0,0,0,1,.000,.000,.000
 Riley Greene,Luis L. Ortiz,4,3,1,0,0,0,1,.750,.750,1.000
 Spencer Torkelson,Luis L. Ortiz,4,2,2,0,0,0,0,.500,.500,1.000
+Zach McKinstry,Luis L. Ortiz,4,1,0,0,0,2,1,.250,.500,.250
 Matt Vierling,Luis L. Ortiz,1,1,0,0,0,0,0,1.000,1.000,1.000
-Dillon Dingler,Luis L. Ortiz,0,0,0,0,0,0,0,.000,.000,.000
 Trey Sweeney,Luis L. Ortiz,0,0,0,0,0,0,0,.000,.000,.000
-Javier Baez,Luis L. Ortiz,3,1,0,0,0,0,0,.333,.333,.333
+Jake Rogers,Luis L. Ortiz,1,1,0,0,0,0,0,1.000,1.000,1.000
 Shohei Ohtani,David Peterson,7,2,0,0,0,0,1,.286,.286,.286
 Mookie Betts,David Peterson,8,2,1,0,0,0,1,.250,.250,.375
-Will Smith,David Peterson,3,2,1,0,1,0,0,.667,.667,2.000
-Freddie Freeman,David Peterson,18,5,0,0,2,1,7,.278,.316,.611
 Teoscar Hernandez,David Peterson,4,2,0,0,1,0,0,.500,.500,1.250
+Freddie Freeman,David Peterson,18,5,0,0,2,1,7,.278,.316,.611
 Andy Pages,David Peterson,2,1,0,0,0,0,0,.500,.500,.500
 Tommy Edman,David Peterson,0,0,0,0,0,0,0,.000,.000,.000
 Enrique Hernandez,David Peterson,5,3,1,0,0,0,1,.600,.600,.800
+Dalton Rushing,David Peterson,0,0,0,0,0,0,0,.000,.000,.000
 Miguel Rojas,David Peterson,14,7,3,0,1,0,1,.500,.500,.929
 Francisco Lindor,Tony Gonsolin,1,0,0,0,0,1,0,.000,.500,.000
+Starling Marte,Tony Gonsolin,7,0,0,0,0,0,0,.000,.000,.000
 Juan Soto,Tony Gonsolin,11,3,0,1,0,0,2,.273,.273,.455
 Pete Alonso,Tony Gonsolin,4,1,0,0,0,0,2,.250,.250,.250
-Brandon Nimmo,Tony Gonsolin,5,1,0,0,1,0,1,.200,.200,.800
-Mark Vientos,Tony Gonsolin,0,0,0,0,0,0,0,.000,.000,.000
 Jeff McNeil,Tony Gonsolin,3,0,0,0,0,1,0,.000,.250,.000
-Francisco Alvarez,Tony Gonsolin,2,0,0,0,0,0,0,.000,.000,.000
-Brett Baty,Tony Gonsolin,1,0,0,0,0,0,1,.000,.000,.000
+Luis Torrens,Tony Gonsolin,0,0,0,0,0,0,0,.000,.000,.000
+Jared Young,Tony Gonsolin,0,0,0,0,0,0,0,.000,.000,.000
 Tyrone Taylor,Tony Gonsolin,4,2,0,0,0,0,2,.500,.500,.500
+Brett Baty,Tony Gonsolin,1,0,0,0,0,0,1,.000,.000,.000
 Trea Turner,Jeffrey Springs,3,1,1,0,0,0,0,.333,.333,.667
 Bryce Harper,Jeffrey Springs,0,0,0,0,0,0,0,.000,.000,.000
 Kyle Schwarber,Jeffrey Springs,4,1,1,0,0,0,1,.250,.250,.500
